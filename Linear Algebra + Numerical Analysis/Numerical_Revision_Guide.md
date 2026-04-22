@@ -562,38 +562,85 @@ is *exact* for all polynomials of degree $\leq 2n-1$.
 
 ## Key Problem Sheet Questions to Review
 
-### Sheet 1 (Rectangular Rule & Divided Differences)
-- Q1: Trapezium rule error bound ($O(h^2)$) — the proof technique mirrors exam questions
-- Q2: Central differences convergence rate — directly examined 2024 Q4b
-- Q3: Second derivative approximation
+Questions marked *(optional)* on the course GitHub are not directly examined but may give good practice for "unseen" style questions.
 
-### Sheet 2 (Dual Numbers & Newton's Method)
-- Q1: Computing derivatives via dual numbers by hand
-- Q2: Gradients via dual numbers (double-dual structure) — directly examined 2024 Q4c
-- Q3(a): Newton convergence for degenerate case
+### Sheet 1 — Rectangular Rule & Divided Differences
+- **Q1:** Left-sided rectangular rule error bound — same proof technique as lectures, good warmup
+- **Q2(a):** One-panel trapezium rule error bound ($O(h^3)$) — the integration-by-parts-twice proof technique is important
+- **Q2(b):** Global trapezium rule error bound ($O(h^2)$) — summing panel errors, mirrors the lecture proof
+- **Q3:** Left-sided divided difference error bound — almost identical to right-sided (lectures)
+- **Q4:** Central differences convergence rate ($O(h^2)$) — **directly examined 2024 Q4b**. Uses third-order Taylor expansion
+- **Q5:** Second derivative approximation error bound *(optional)*
 
-### Sheet 3 (Floating Point)
-- Q1-2: Converting to/from IEEE format — examined every year Q4a
-- Q3: Bounding floating point expressions — core exam technique
-- Q4: Central differences with floating point error — examined 2023/2024 Q4b
+### Sheet 2 — Dual Numbers & Newton's Method
+- **Q1:** Computing polynomial derivatives via dual number arithmetic by hand — core skill, practise until automatic
+- **Q2:** Dual extensions of $x^{100}+1$, $1/x$, $\tan x$ — knowing the extensions for standard functions
+- **Q3:** Differentiating compositions with dual numbers (e.g. $\exp(\exp(x)\cos(x) + \sin(x))$) — *(Q3(b) optional)*
+- **Q5(a):** 2D dual number product formula — **directly examined 2024 Q4c(i)**
+- **Q5(b):** 2D dual numbers compute gradients of polynomials — **directly examined 2024 Q4c(ii)**
+- **Q5(c):** Computing a specific gradient via 2D duals — good practice
+- **Q6:** Newton convergence for degenerate case ($f'(r) = 0$) — linear convergence bound $|\epsilon_{k+1}| \leq \tilde{M}|\epsilon_k|$
 
-### Sheet 4 (Interval Arithmetic & Structured Matrices)
-- Q1: Floating point error in matrix-vector multiplication — examined 2024 Q5a
-- Q2(b): Interval arithmetic computations
+### Sheet 3 — Floating Point Arithmetic
+- **Q1:** $\pi$ in binary — basic skill
+- **Q2:** $F_{32}$ representations for specific numbers — **examined every year Q4a(ii)**
+- **Q3:** Float spacing ($m(y) - y$ for different $y$) — builds intuition for machine epsilon
+- **Q4:** Exact floating point computations (when there's no rounding error)
+- **Q5:** $1/5$ in binary and rounding in $F_{16}$ — good practice for the rounding rules (round-to-even)
+- **Q6:** Bounding FP expressions: $(fl(1.1) \otimes fl(1.2)) \oplus fl(1.3)$ and $(fl(1.1) \ominus 1) \oslash fl(0.1)$ — **core exam technique**, directly mirrors lecture Example 9
+- **Q7:** Central differences with floating point error bound — **directly examined 2023 Q4b, 2024 Q4b** *(optional but highly exam-relevant)*
 
-### Sheet 5 (LU/PLU/Cholesky)
-- Q2: LU and PLU by hand — examined every year Q5a
-- Q3: Cholesky by hand — examined every year
-- Q4: Proving positive definiteness via Cholesky
+### Sheet 4 — Interval Arithmetic & Structured Matrices
+- **Q1:** Proving interval arithmetic formulae ($X/n$, $XY$) and generalising to negative values
+- **Q2(a):** Interval arithmetic for computing $\sin 1$ with rigorous bounds *(optional)*
+- **Q2(b):** Further interval computations — good pen-and-paper practice
+- **Q2(c):** Extended interval computations *(optional)*
+- **Q3:** Floating point error in bidiagonal matrix-vector multiplication — **directly examined 2024 Q5a**. Shows $\|\delta\|_\infty \leq \frac{3}{2}\epsilon_m \|A\|_\infty \|x\|_\infty$
 
-### Sheet 6 (Orthogonal Matrices & QR)
-- Q2: Properties of orthogonal matrices (norm-preserving, eigenvalues, determinant)
-- Q3: Householder reflection construction — directly examined
-- Q5: QR uniqueness
+### Sheet 5 — LU, PLU & Cholesky Factorisations
+- **Q1:** Backward error for banded matrices *(optional)* — but the technique is **directly examined 2023 Q5c**
+- **Q2:** LU factorisation by hand — **examined every year Q5a**. Drill until effortless
+- **Q3:** PLU factorisation by hand — know the pivoting procedure cold
+- **Q4:** Cholesky factorisation by hand — **examined every year** (2024 Q5b, 2025 Q5a). Free marks if practised
+- **Q5:** Reverse Cholesky ($A = U U^\top$) — good extension, tests understanding of the proof structure
 
-### Sheet 7 (Interpolation, Regression, SVD)
-- Q1-2: Polynomial interpolation via Vandermonde/DFT — examined 2024 Q6a
-- Q3: SVD and pseudoinverse
-- Q4-5: Marked as optional
+### Sheet 6 — Orthogonal Matrices & QR Factorisation
+- **Q1:** Constructing simple rotations and reflections *(optional)* — but rotations **examined 2025 Q5b**
+- **Q2:** Properties of orthogonal matrices: (i) norm-preserving, (ii) eigenvalues on unit circle, (iii) $\det = \pm 1$, (iv) normal, (v) $Q = I$ iff all eigenvalues are 1 — all important for proofs
+- **Q3:** Householder reflection construction — **directly examined 2023 Q5b, 2024 Q5c(i), 2025 Q5c(i)**
+- **Q4:** QR factorisation by hand via Householder *(optional — hard to get nice numbers)*
+- **Q5:** QR uniqueness (when $R$ has positive diagonal)
 
-**Note:** Problem sheet questions marked "optional" on the GitHub are not directly examined but may give good practice for "unseen" style questions.
+### Sheet 7 — Interpolation, Regression & SVD
+- **Q1(a):** Polynomial interpolation via Lagrange basis — good background
+- **Q1(b):** Least squares via QR by hand — the full Householder→solve pipeline
+- **Q2:** Vandermonde matrix properties and determinant — connects to interpolation theory
+- **Q3:** Interpolatory quadrature rules — **directly examined 2025 Q6b(iii)** (Gauss quadrature is a special case)
+- **Q4:** SVD and pseudoinverse *(optional)*
+- **Q5:** Vandermonde determinant *(optional)*
+
+### Sheet 8 — Fourier Series & DFT (from previous year, covered in project chat)
+- **Q1:** Computing discrete Fourier coefficients via aliasing formula — **directly examined 2023 Q6a**
+- **Q2:** Decay of Fourier coefficients via integration by parts — important for understanding convergence
+- **Q3:** DFT matrix properties: (a) unitarity proof, (b) bounding sums by integrals, (c) interpolation — **(a) directly examined 2025 Q6a(ii)**
+- **Q4:** Discrete Cosine Transform — extends the DFT theory
+- **Q5:** Interpolation via DFT — **directly examined 2024 Q6a**
+
+### Sheet 9 — Orthogonal Polynomials & Gauss Quadrature
+- **Q1:** Constructing orthogonal polynomials via Gram-Schmidt/Stieltjes — **directly examined every year Q6b**
+- **Q2:** Three-term recurrence and Jacobi matrix — key theoretical framework
+- **Q3:** Symmetry of Jacobi matrix when weight is even ($a_k = 0$) — **examined 2023 Q6c(i)**
+- **Q4:** Gauss quadrature nodes as eigenvalues of Jacobi matrix — **examined 2023 Q6c(ii), 2024 Q6b(ii-iii), 2025 Q6b(iii)**
+- **Q5:** Derivatives of orthogonal polynomial families — **examined 2023 Q6b(ii) ($U'_{n+1} = 2C_n$), 2025 Q6b(ii) ($C_n = P'_{n+1}$)**
+
+### Priority Ranking for Revision
+
+If time is limited, focus on these in order:
+
+1. **Sheet 5 Q2–Q4** (LU/PLU/Cholesky by hand) — guaranteed easy marks every year
+2. **Sheet 3 Q6** (bounding FP expressions) — the core technique for Q4
+3. **Sheet 6 Q3** (Householder reflections) — appears every year in Q5
+4. **Sheet 9 Q1, Q4** (orthogonal polynomial construction + Gauss quadrature) — the hardest Q6 marks
+5. **Sheet 2 Q1, Q5** (dual numbers + 2D variant) — the trickiest part of Q4
+6. **Sheet 1 Q4** (central differences error) — often examined directly
+7. **Sheet 8 Q1, Q3(a)** (Fourier coefficients + DFT unitarity) — bookwork marks in Q6
